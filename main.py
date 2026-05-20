@@ -1,6 +1,7 @@
 """
 מערכת ניהול תורנויות חיילים
 """
+from soldier_manager import add_soldier
 
 
 # ============================================================================
@@ -60,7 +61,15 @@ def handle_add_soldier() -> None:
     main.py אחראי על אינטראקציה עם המשתמש,
     soldier_manager.py אחראי על הלוגיקה.
     """
-    pass
+    soldier_id = int(input("Please enter a soldier id>  "))
+    name = input("Please enter the soldier name>  ")
+
+    try:
+        add_soldier(soldier_id, name)
+        print("The soldier successfully added.✓")
+    except ValueError as e:
+        print(f"error: {e}")
+
 
 
 def handle_remove_soldier() -> None:
