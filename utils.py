@@ -152,3 +152,24 @@ def is_valid_day(day: str) -> bool:
     פונקציות validation מחזירות bool ולא זורקות exceptions.
     """
     pass
+
+def is_valid_id(id_str: str) -> bool:
+    """
+    בודקת אם ה-ID שהוקלד תקין (לא ריק, מכיל רק ספרות ובאורך הגיוני).
+
+    סוג: פונקציית validation (בדיקת תקינות)
+    מקור קלט: מקבלת מחרוזת (str) לפני ההמרה למספר, כדי למנוע קריסה.
+    """
+    clean_id = id_str.strip()
+
+
+    if not clean_id:
+        return False
+
+    if not clean_id.isdigit():
+        return False
+
+    if len(clean_id) < 6 or len(clean_id) > 8:
+        return False
+
+    return True
