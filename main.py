@@ -1,7 +1,7 @@
 """
 מערכת ניהול תורנויות חיילים
 """
-from soldier_manager import add_soldier
+from soldier_manager import *
 
 
 # ============================================================================
@@ -83,7 +83,13 @@ def handle_remove_soldier() -> None:
     למה הפונקציה קיימת:
     הפרדה בין UI לבין לוגיקה עסקית.
     """
-    pass
+    soldier_id = int(input("Please enter a soldier id>  "))
+
+    try:
+        remove_soldier(soldier_id)
+        print("The soldier successfully removed.✓")
+    except ValueError as e:
+        print(f"error: {e}")
 
 
 def handle_view_soldiers() -> None:
