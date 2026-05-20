@@ -3,5 +3,4 @@ venv/
 .idea/
 __pycache__/
 *.pyc
-main.py
 function_signatures_final_v.py
