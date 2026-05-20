@@ -2,6 +2,7 @@
 מערכת ניהול תורנויות חיילים
 """
 from soldier_manager import *
+from utils import *
 
 
 # ============================================================================
@@ -61,14 +62,28 @@ def handle_add_soldier() -> None:
     main.py אחראי על אינטראקציה עם המשתמש,
     soldier_manager.py אחראי על הלוגיקה.
     """
-    soldier_id = int(input("Please enter a soldier id>  "))
-    name = input("Please enter the soldier name>  ")
 
-    try:
-        add_soldier(soldier_id, name)
-        print("The soldier successfully added.✓")
-    except ValueError as e:
-        print(f"error: {e}")
+    is_soldier_added = False
+
+    while not is_soldier_added:
+        id_input = input("Please enter a soldier id>  ").strip()
+        if not is_valid_id(id_input):
+            print("ID must be 6-8 digits long. Please try again. ❌")
+            print("-" * 40)
+            continue
+
+        soldier_id = int(id_input)
+        name = input("Please enter the soldier name>  ")
+
+        try:
+            add_soldier(soldier_id, name)
+            print("The soldier successfully added.✓")
+            is_soldier_added = True
+
+        except ValueError as e:
+            print(f"error: {e}")
+            print("Please try again with different details.\n")
+            print("-" * 40)
 
 
 
