@@ -3,7 +3,7 @@
 # אחריות: פונקציות עזר שחוזרות על עצמן
 # ============================================================================
 
-def find_soldier_by_id(soldier_id: int) -> dict | None:
+def find_soldier_by_id(soldier_id: int, soldier_list) -> dict | None:
     """
     מחפשת חייל לפי id ומחזירה אותו.
 
@@ -161,7 +161,6 @@ def is_valid_id(id_str: str) -> bool:
     מקור קלט: מקבלת מחרוזת (str) לפני ההמרה למספר, כדי למנוע קריסה.
     """
     clean_id = id_str.strip()
-
 
     if not clean_id:
         return False

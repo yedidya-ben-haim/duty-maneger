@@ -3,6 +3,7 @@
 """
 from soldier_manager import *
 from utils import *
+import data
 
 
 # ============================================================================
@@ -49,7 +50,7 @@ def get_user_choice() -> str:
     return user_input
 
 
-def handle_add_soldier() -> None:
+def handle_add_soldier(soldier_list: list) -> None:
     """
     מטפלת בתהליך הוספת חייל חדש.
     מקבלת קלט מהמשתמש וקוראת לפונקציות המתאימות.
@@ -67,6 +68,7 @@ def handle_add_soldier() -> None:
 
     while not is_soldier_added:
         id_input = input("Please enter a soldier id>  ").strip()
+
         if not is_valid_id(id_input):
             print("ID must be 6-8 digits long. Please try again. ❌")
             print("-" * 40)
@@ -76,7 +78,7 @@ def handle_add_soldier() -> None:
         name = input("Please enter the soldier name>  ")
 
         try:
-            add_soldier(soldier_id, name)
+            add_soldier(soldier_id, name, soldier_list)
             print("The soldier successfully added.✓")
             is_soldier_added = True
 
@@ -174,7 +176,9 @@ def main() -> None:
     למה הפונקציה קיימת:
     נקודת הכניסה לתוכנית. מנהלת את הזרימה הראשית.
     """
-
+    soldiers_list = data.soldiers_list
+    duties_list = data.soldiers_list
+    pass
 
 if __name__ == '__main__':
     main()
